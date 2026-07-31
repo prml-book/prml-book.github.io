@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My TikZ Example</title>
+    <!-- 1. Include the TikZJax library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/tikzjax/fonts.css">
+    <script defer src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/tikzjax/tikzjax.js"></script>
+</head>
+<body>
+    <!-- 2. Your TikZ code -->
+    <script type="text/tikz">
+        \begin{tikzpicture}
+            \draw[color=red] plot (\x,\x) node[right] {$f(x) = x$};
+        \end{tikzpicture}
+    </script>
+</body>
+</html>
