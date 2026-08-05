@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="generator" content="LaTeX Lwarp package" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hacking PRML — Introduction</title>
+<link rel="stylesheet" type="text/css" href="lwarp_sagebrush.css" />
+</head>
+<body>
+
+
+<a id="prml2latex-autopage-11"></a>
+<nav class="topnavigation"><a href="index.html" class="linkhome" >
+Home</a></nav>
+
+
+<div class="bodyandsidetoc">
+<div class="sidetoccontainer">
+
+
+<nav class="sidetoc">
+
+
+<div class="sidetoctitle">
+<p>
+<span class="sidetocthetitle">Hacking PRML</span>
+</p>
+<p>
+Contents
+</p>
+</div>
+
+
+<div class="sidetoccontents">
+<p>
+<a href="index.html" class="linkhome" >
+Home</a>
+</p>
+<p>
+<a href="Preface.html#autosec-8" class="tocchapter" >
+Preface</a>
+</p>
+
+
+<p>
+<a href="Introduction.html#autosec-12" class="tocchapter" >
+<span class="sectionnumber">1</span>&#x2003;Introduction</a>
+</p>
+
+
+</div>
+</nav>
+</div>
+
+
+<main class="bodycontainer">
+
+
+<section class="textbody">
+
+<h1>Hacking PRML</h1>
+<!--
+...... chapter Introduction ......
+-->
+<h3 id="autosec-12">Chapter&nbsp;<span class="sectionnumber">1&#x2003;</span>Introduction</h3>
+<a id="prml2latex-autopage-12"></a>
+<a id="prml2latex-autofile-2"></a>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-13"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐1</span></span></span>. </span> Consider the sum‐of‐squares
+error function given by (1.2) in which the function <span
+      id="lateximage-prml2latex-2"
+      class="lateximagesource"
+><!--
+y(x, w
+     ⃗)
+--><img
+   src="prml2latex-images/430C660BFCEB902F903CAF4CB06759BF.svg"
+   alt="\( y(x, \vec {w}) \)"
+   role="math"
+   style="width:3.92302em ; vertical-align:-0.63538em "
+   class="lateximage"
+></span> is given by the polynomial (1.1). Show that the coefficients <span
+   id="lateximage-prml2latex-3"
+   class="lateximagesource"
+><!--
+w
+⃗
+--><img
+   src="prml2latex-images/718BEB2C785594200C86D8C159D6569E.svg"
+   alt="\( \vec {w} \)"
+   role="math"
+   style="width:1.03017em ; vertical-align:-0.02502em "
+   class="lateximage"
+></span> = {<span
+   id="lateximage-prml2latex-4"
+   class="lateximagesource"
+><!--
+wi
+--><img
+      src="prml2latex-images/3876085A756CE5FAAEE4A1AC60D9E277.svg"
+      alt="\( w_i \)"
+      role="math"
+      style="width:1.35521em ; vertical-align:-0.18964em "
+      class="lateximage"
+></span>} that minimize this error function are given by the solution to the following set of linear equations
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-1" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-5"
+      class="lateximagesource"
+><!--
+M
+X
+      Aij wj = Ti   (1.122)
+j=0
+--><img
+      src="prml2latex-images/image-5.svg"
+      alt="(1.122–1.122) \{begin}{gather*}   \sum _{j=0}^{M} A_{ij}w_j = T_i \tag {1.122} \label {1.122} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+where
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-2" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-6"
+      class="lateximagesource"
+><!--
+        N
+        X                          N
+                                   X
+                  i+j                         i
+Aij =         (xn )     ,   Ti =         (xn ) tn .
+        n=1                        n=1
+--><img
+      src="prml2latex-images/image-6.svg"
+      alt="(1.1–1.0) \{begin}{gather*}   A_{ij} = \sum _{n=1}^{N} \left (x_n\right )^{i+j}, \qquad T_i = \sum _{n=1}^{N} \left (x_n\right )^i t_n. \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Here a suffix i or j denotes the index of a component, whereas <span
+      id="lateximage-prml2latex-7"
+      class="lateximagesource"
+><!--
+(x)i
+--><img
+   src="prml2latex-images/BEADD9C9FF6D4D2D357179B3F1DDE1F2.svg"
+   alt="\( (x)^i \)"
+   role="math"
+   style="width:1.92738em ; vertical-align:-0.3125em "
+   class="lateximage"
+></span> denotes x raised to the power of i. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-26"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span>
+</p>
+
+
+<div class="displaymathnumbered">
+
+<a id="autoid-3" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-8"
+      class="lateximagesource"
+><!--
+                                                 M
+                                                 X        j
+     ⃗ ) = w0 + w1 x + w2 x2 + . . . + wm xM =
+y(x, w                                                 wj x   (1.1)
+                                                 j=0
+--><img
+      src="prml2latex-images/image-8.svg"
+      alt="(1.1) \{begin}{gather}    y(x, \vec {w}) = w_0 + w_1 x + w_2 x^2 + \ldots + w_m x^M = \sum _{j=0}^{M} w_j x^j \label {1.1} \{end}{gather} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymathnumbered">
+
+<a id="autoid-4" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-9"
+      class="lateximagesource"
+><!--
+         1 Xn                 o2
+            N
+E(⃗
+  w) =       y (xn , w
+                     ⃗ ) − tn      (1.2)
+         2
+           n=1
+--><img
+      src="prml2latex-images/image-9.svg"
+      alt="(1.2) \{begin}{gather}   E(\vec {w}) = \dfrac {1}{2} \sum _{n=1}^{N} \left \{ y\left (x_n, \vec {w}\right ) - t_n\right \}^2 \label {1.2} \{end}{gather} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymathnumbered">
+
+<a id="autoid-5" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-10"
+      class="lateximagesource"
+><!--
+                                                      M
+                                                      X         j
+         ⃗ ) = w0 + w1 xn + w2 x2
+∴ y(xn , w                                      M
+                                n + . . . + wm xn =         wj xn   (1.3)
+                                                      j=0
+--><img
+      src="prml2latex-images/image-10.svg"
+      alt="(1.3) \{begin}{gather}   \therefore y(x_n, \vec {w}) = w_0 + w_1 x_n + w_2 x_n^2 + \ldots + w_m x_n^M = \sum _{j=0}^{M} w_j x_n^j \label {1.3} \{end}{gather} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Substituting&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-10">1.3</a>)</span> in&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-9">1.2</a>)</span>, we get
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-6" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-11"
+      class="lateximagesource"
+><!--
+                                    2
+           N 
+           X XM                     
+                                     
+         1                 j
+E(⃗
+  w) =                  wj xn − tn
+         2                          
+             n=1 j=0                
+--><img
+      src="prml2latex-images/image-11.svg"
+      alt="(1.4–1.3) \{begin}{gather*}   E(\vec {w}) = \dfrac {1}{2} \sum _{n=1}^{N} \left \{ \sum _{j=0}^{M} w_j x_n^j - t_n \right \}^2 \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Differentiating both sides with respect to <span
+      id="lateximage-prml2latex-12"
+      class="lateximagesource"
+><!--
+wi
+--><img
+      src="prml2latex-images/3876085A756CE5FAAEE4A1AC60D9E277.svg"
+      alt="\( w_i \)"
+      role="math"
+      style="width:1.35521em ; vertical-align:-0.18964em "
+      class="lateximage"
+></span>, we get
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-7" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-13"
+      class="lateximagesource"
+><!--
+                                                           
+                                              PM       j
+            N                            
+                                          d   j=0 wj xn − tn
+dE(⃗
+   w)       X XM
+                                j
+        =               wj xn − tn
+ dwi                                             dwi
+            n=1 j=0                      
+                                                                                              
+            N 
+              X                          
+                                           d w0 x0       1               i               M
+                                                  n + w1 xn + . . . + wi xn + . . . + wN xn − tn
+            X   M
+                                j
+        =               wj xn − tn
+                                                                                  dwi
+            n=1 j=0                      
+                                         
+               M                         
+            X X
+            N
+                                j
+                                          
+        =               wj xn − tn          xin
+                                         
+            n=1 j=0                      
+            N X
+            X M                         N
+                                        X
+                          j
+        =             wj xn xin −             tn xin
+            n=1 j=0                     n=1
+
+            N X
+            X M                         N
+                                        X
+                          i+j
+        =             wj xn         −         tn xin
+            n=1 j=0                     n=1
+
+            M X
+            X N                               N
+                                              X
+                              i+j                       i
+        =             (xn )         wj −            (xn ) tn
+            j=0 n=1                           n=1
+
+            M
+            X                                                   N
+                                                                X                                 N
+                                                                                                  X
+                                                                              i+j                           i
+        =         Aij wj − Ti             where         Aij =         (xn )          and   Ti =         (xn ) tn
+            j=0                                                 n=1                               n=1
+--><img
+      src="prml2latex-images/image-13.svg"
+      alt="(1.4–1.3) \{begin}{align*}   \dfrac {dE(\vec {w})}{dw_i} &amp;= \sum _{n=1}^{N} \left \{ \sum _{j=0}^{M} w_j x_n^j - t_n \right \} \dfrac {d\left (\sum _{j=0}^{M} w_j x_n^j - t_n\right )}{dw_i} \\ &amp;= \sum _{n=1}^{N} \left \{
+\sum _{j=0}^{M} w_j x_n^j - t_n \right \} \dfrac {d\left (w_0 x_n^0 + w_1 x_n^1 + \ldots + w_i x_n^i + \ldots + w_N x_n^M - t_n\right )}{dw_i} \\ &amp;= \sum _{n=1}^{N} \left \{ \sum _{j=0}^{M} w_j x_n^j - t_n \right \} x_n^i \\ &amp;=
+\sum _{n=1}^{N} \sum _{j=0}^{M} w_j x_n^j x_n^i - \sum _{n=1}^{N} t_n x_n^i \\ &amp;= \sum _{n=1}^{N} \sum _{j=0}^{M} w_j x_n^{i + j} - \sum _{n=1}^{N} t_n x_n^i \\ &amp;= \sum _{j=0}^{M} \sum _{n=1}^{N} \left (x_n\right )^{i + j} w_j -
+\sum _{n=1}^{N} \left (x_n\right )^i t_n \\ &amp;= \sum _{j=0}^M A_{ij} w_j - T_i \qquad \text {where} \quad A_{ij} = \sum _{n=1}^{N} \left (x_n\right )^{i + j} \quad \text {and} \quad T_i = \sum _{n=1}^{N} \left (x_n\right )^i t_n
+\{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+To get the minima:
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-8" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-14"
+      class="lateximagesource"
+><!--
+                 M
+                 X
+dE(⃗
+   w)
+        = 0 =⇒         Aij wj = Ti
+ dwi             j=0
+--><img
+      src="prml2latex-images/image-14.svg"
+      alt="(1.4–1.3) \{begin}{gather*}   \dfrac {dE(\vec {w})}{dw_i} = 0 \implies \boxed {\sum _{j=0}^M A_{ij} w_j = T_i} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-41"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐2</span></span></span>. </span> Write down the set of
+coupled linear equations, analogous to &nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-5">1.122</a>)</span>, satisfied by the coefficients <span
+      id="lateximage-prml2latex-15"
+      class="lateximagesource"
+><!--
+wi
+--><img
+   src="prml2latex-images/3876085A756CE5FAAEE4A1AC60D9E277.svg"
+   alt="\( w_i \)"
+   role="math"
+   style="width:1.35521em ; vertical-align:-0.18964em "
+   class="lateximage"
+></span> which minimize the regularized sum‐of‐squares error function given by&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-16">1.4</a>)</span>. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-44"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span>
+</p>
+
+
+
+<div class="displaymathnumbered">
+
+<a id="autoid-9" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-16"
+      class="lateximagesource"
+><!--
+       1 Xn                o2 λ
+         N
+e
+E(⃗
+  w) =     y (xn , w            w||2
+                   ⃗ ) − tn + ||⃗      (1.4)
+       2                      2
+         n=1
+--><img
+      src="prml2latex-images/image-16.svg"
+      alt="(1.4) \{begin}{gather}   \widetilde {E}(\vec {w}) = \dfrac {1}{2} \sum _{n=1}^{N} \left \{ y\left (x_n, \vec {w}\right ) - t_n\right \}^2 + \dfrac {\lambda }{2} ||\vec {w}||^2 \label {1.4} \{end}{gather} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymath">
+
+<a id="autoid-10" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-17"
+      class="lateximagesource"
+><!--
+  e             λ
+∴ E(⃗
+    w) = E(⃗      w||2
+           w) + ||⃗
+                2                                   
+                λ
+       = E(⃗
+           w) +    w2    2            2            2
+                    0 + w1 + . . . + wi + . . . + wM
+                2
+--><img
+      src="prml2latex-images/image-17.svg"
+      alt="(1.5–1.4) \{begin}{align*}   \therefore \widetilde {E}(\vec {w}) &amp;= E(\vec {w}) + \dfrac {\lambda }{2} ||\vec {w}||^2 \\ &amp;= E(\vec {w}) + \dfrac {\lambda }{2} \left (w_0^2 + w_1^2 + \ldots + w_i^2 + \ldots + w_M^2\right )
+\{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymath">
+
+<a id="autoid-11" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-18"
+      class="lateximagesource"
+><!--
+     e
+    dE(⃗
+       w)       dE(⃗
+                   w)
+∴           =       + λwi
+     dwi       dwi
+              M
+              X
+            =   Aij wj − Ti + λwi
+                j=0
+
+                M
+                X                       M
+                                        X
+            =         Aij wj − Ti + λ         δij wj
+                j=0                     j=0
+--><img
+      src="prml2latex-images/image-18.svg"
+      alt="(1.5–1.4) \{begin}{align*}   \therefore \dfrac {d\widetilde {E}(\vec {w})}{dw_i} &amp;= \dfrac {dE(\vec {w})}{dw_i} + \lambda w_i \\ &amp;= \sum _{j=0}^M A_{ij} w_j - T_i + \lambda w_i \\ &amp;= \sum _{j=0}^M A_{ij} w_j - T_i +
+\lambda \sum _{j=0}^M \delta _{ij} w_j \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+where
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-12" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-19"
+      class="lateximagesource"
+><!--
+      
+      1 if i = j
+δij =
+      0 if i ̸= j
+--><img
+      src="prml2latex-images/image-19.svg"
+      alt="(1.5–1.4) \{begin}{gather*}   \delta _{ij} = \begin{cases} 1 &amp; \text {if } i = j \\ 0 &amp; \text {if } i \neq j \end {cases} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymath">
+
+<a id="autoid-13" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-20"
+      class="lateximagesource"
+><!--
+     e          M 
+                X               
+    dE(⃗
+       w)
+∴           =         Aij + λδij wj − Ti
+     dwi        j=0
+--><img
+      src="prml2latex-images/image-20.svg"
+      alt="(1.5–1.4) \{begin}{gather*}   \therefore \dfrac {d\widetilde {E}(\vec {w})}{dw_i} = \sum _{j=0}^M\left (A_{ij} + \lambda \delta _{ij}\right ) w_j - T_i \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+To obtain the minima:
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-14" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-21"
+      class="lateximagesource"
+><!--
+ e               M 
+                 X                          M
+                                             X                                    
+dE(⃗
+   w)
+        = 0 =⇒         Aij + λδij wj = Ti =⇒   Zij wj = Ti where Zi j = Aij + λδij
+ dwi             j=0                         j=0
+--><img
+      src="prml2latex-images/image-21.svg"
+      alt="(1.5–1.4) \{begin}{gather*}   \dfrac {d\widetilde {E}(\vec {w})}{dw_i} = 0 \implies \sum _{j=0}^M\left (A_{ij} + \lambda \delta _{ij}\right ) w_j = T_i \implies \boxed {\sum _{j=0}^M Z_{ij} w_j = T_i} \text { where } Z_ij = \left
+(A_{ij} + \lambda \delta _{ij}\right ) \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-57"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐3</span></span></span>. </span> Suppose that we have three
+coloured boxes r (red), b (blue), and g (green). Box r contains 3 apples, 4 oranges, and 3 limes, box b contains 1 apple, 1 orange, and 0 limes, and box g contains 3 apples, 3 oranges, and 4 limes. If a box is chosen at random with
+probabilities p(r) = 0.2, p(b) = 0.2, p(g) = 0.6, and a piece of fruit is removed from the box (with equal probability of selecting any of the items in the box), then what is the probability of selecting an apple? If we observe that the
+selected fruit is in fact an orange, what is the probability that it came from the green box? <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-58"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span> Selection being equal probable implies that the probability of selecting an apple is
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-15" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-22"
+      class="lateximagesource"
+><!--
+                                                 3        1         3
+P(a) = P(a|r)P(r) + P(a|b)P(b) + P(a|g)P(g) =      × 0.2 + × 0.2 +    × 0.6 = 0.34
+                                                10        2        10
+--><img
+      src="prml2latex-images/image-22.svg"
+      alt="(1.5–1.4) \{begin}{gather*}   P(a) = P(a | r) P(r) + P(a | b) P(b) + P(a | g) P(g) = \dfrac {3}{10} \times 0.2 + \dfrac {1}{2} \times 0.2 + \dfrac {3}{10} \times 0.6 = 0.34 \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Similarly the probability of selecting an orange is
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-16" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-23"
+      class="lateximagesource"
+><!--
+                                                 4        1         3
+P(o) = P(o|r)P(r) + P(o|b)P(b) + P(o|g)P(g) =      × 0.2 + × 0.2 +    × 0.6 = 0.36
+                                                10        2        10
+--><img
+      src="prml2latex-images/image-23.svg"
+      alt="(1.5–1.4) \{begin}{gather*}   P(o) = P(o | r) P(r) + P(o | b) P(b) + P(o | g) P(g) = \dfrac {4}{10} \times 0.2 + \dfrac {1}{2} \times 0.2 + \dfrac {3}{10} \times 0.6 = 0.36 \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Probability that it came from green box given it's an orange can be computed using conditional probability which is more fundamental and intuitive than the direct Bayes' theorem :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-17" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-24"
+      class="lateximagesource"
+><!--
+           P(g ∩ o)
+P(g|o) =
+            P(o)
+           P(o|g)P(g)
+      =
+           P(0)
+         3
+           × 0.6   1
+      = 10       =
+          0.36     2
+--><img
+      src="prml2latex-images/image-24.svg"
+      alt="(1.5–1.4) \{begin}{align*}   P(g | o) &amp;= \dfrac {P(g \cap o)}{P(o)} \\ &amp;= \dfrac {P(o | g) P(g)}{P(0)} \\ &amp;= \dfrac {\dfrac {3}{10} \times 0.6}{0.36} = \dfrac {1}{2} \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-65"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐4</span></span></span>. </span> Consider a probability
+density <span
+      id="lateximage-prml2latex-25"
+      class="lateximagesource"
+><!--
+px (x)
+--><img
+   src="prml2latex-images/335AE5B809A033D13181FDA533A18204.svg"
+   alt="\( p_x(x) \)"
+   role="math"
+   style="width:2.79497em ; vertical-align:-0.72632em "
+   class="lateximage"
+></span> defined over a continuous variable <span
+   id="lateximage-prml2latex-26"
+   class="lateximagesource"
+><!--
+x
+--><img
+   src="prml2latex-images/F7AE1A92BBF3A6F92B497AD182CCAE54.svg"
+   alt="\( x \)"
+   role="math"
+   style="width:0.63008em ; vertical-align:-0.03326em "
+   class="lateximage"
+></span>, and suppose that we make a nonlinear change of variable using <span
+   id="lateximage-prml2latex-27"
+   class="lateximagesource"
+><!--
+x = g(y)
+--><img
+   src="prml2latex-images/6008B45E81D750979283DE941E72C250.svg"
+   alt="\( x = g(y) \)"
+   role="math"
+   style="width:4.74423em ; vertical-align:-0.65857em "
+   class="lateximage"
+></span>, so that the density transforms according to (1.27). By differentiating (1.27), show that the location <span
+   id="lateximage-prml2latex-28"
+   class="lateximagesource"
+><!--
+y
+b
+--><img
+   src="prml2latex-images/39033BE3255205E23F3436DF6750E44B.svg"
+   alt="\( \widehat {y} \)"
+   role="math"
+   style="height:1.53816em ; vertical-align:-0.63538em "
+   class="lateximage"
+></span> of the maximum of the density in <span
+   id="lateximage-prml2latex-29"
+   class="lateximagesource"
+><!--
+y
+--><img
+   src="prml2latex-images/D90B03B2FCB9CE7D9F2F1D60E738CCAA.svg"
+   alt="\( y \)"
+   role="math"
+   style="width:0.79518em ; vertical-align:-0.63538em "
+   class="lateximage"
+></span> is not in general related to the location <span
+   id="lateximage-prml2latex-30"
+   class="lateximagesource"
+><!--
+x
+b
+--><img
+   src="prml2latex-images/381D9D580DE6FAB71C4D374B6FC7CC99.svg"
+   alt="\( \widehat {x} \)"
+   role="math"
+   style="height:0.93605em ; vertical-align:-0.03326em "
+   class="lateximage"
+></span> of the maximum of the density over <span
+   id="lateximage-prml2latex-31"
+   class="lateximagesource"
+><!--
+x
+--><img
+   src="prml2latex-images/F7AE1A92BBF3A6F92B497AD182CCAE54.svg"
+   alt="\( x \)"
+   role="math"
+   style="width:0.63008em ; vertical-align:-0.03326em "
+   class="lateximage"
+></span> by the simple functional relation <span
+   id="lateximage-prml2latex-32"
+   class="lateximagesource"
+><!--
+x = g(b
+b     y)
+--><img
+   src="prml2latex-images/0017FB5BFCA5FE2125C9996CC16C4018.svg"
+   alt="\( \widehat {x} = g(\widehat {y}) \)"
+   role="math"
+   style="width:4.74423em ; vertical-align:-0.65857em "
+   class="lateximage"
+></span> as a consequence of the Jacobian factor. This shows that the maximum of a probability density (in contrast to a simple function) is dependent of the choice of variable. Verify that, in the case of a linear transformation, the
+location of the maximum transforms in the same way as the variable itself. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-82"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span> We are given a probability density <span
+      id="lateximage-prml2latex-33"
+      class="lateximagesource"
+><!--
+px (x)
+--><img
+   src="prml2latex-images/335AE5B809A033D13181FDA533A18204.svg"
+   alt="\( p_x(x) \)"
+   role="math"
+   style="width:2.79497em ; vertical-align:-0.72632em "
+   class="lateximage"
+></span> over x and a transformation <span
+   id="lateximage-prml2latex-34"
+   class="lateximagesource"
+><!--
+x = g(y)
+--><img
+      src="prml2latex-images/F615BFDA8F37F59B5D3215524D30DE0E.svg"
+      alt="\( x=g(y) \)"
+      role="math"
+      style="width:4.74423em ; vertical-align:-0.65857em "
+      class="lateximage"
+></span>, where g is invertible and differentiable. The transformed density in y is given by
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-18" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-35"
+      class="lateximagesource"
+><!--
+py (y) = px (g(y))|g′ (y)|   (1.27)
+--><img
+      src="prml2latex-images/image-35.svg"
+      alt="(1.27–1.27) \{begin}{gather*}   p_y(y) = p_x(g(y)) |g&apos;(y)| \tag {1.27}\label {1.27} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Differentiate both sides of&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-35">1.27</a>)</span> with respect to y to obtain the maximum of <span
+      id="lateximage-prml2latex-36"
+      class="lateximagesource"
+><!--
+py (y)
+--><img
+      src="prml2latex-images/ADB02CD3B4F67D28840EBD0AFE3EF110.svg"
+      alt="\( p_y(y) \)"
+      role="math"
+      style="width:3.07564em ; vertical-align:-0.72632em "
+      class="lateximage"
+></span> :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-19" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-37"
+      class="lateximagesource"
+><!--
+                                   
+    dpy (y)       d px (g(y)|g′ (y)
+∴             =                         where g′ (y) = ±|g′ (y)|
+      dy                  dy
+                                 
+                   d px (x)g′ (y)
+              =±
+                        dy
+                                                            
+                     d px (x)                          d g′ (y) 
+              =±                  × g′ (y) + px (x) ×
+                       dy                                dy    
+                                                               
+                     d px (x)      dx                            
+              =±                  ×    × g′ (y) + px (x) × g′′ (y)
+                         dx        dy                            
+--><img
+      src="prml2latex-images/image-37.svg"
+      alt="(1.5–1.4) \{begin}{align*}   \therefore \dfrac {dp_y(y)}{dy} &amp;= \dfrac {d \left (p_x(g(y) |g&apos;(y)\right )}{dy} \quad \text {where} \quad g&apos;(y) = \pm |g&apos;(y)| \\ &amp;= \pm \dfrac {d\left (p_x(x) g&apos;(y)\right
+)}{dy} \\ &amp;= \pm \left \{\dfrac {d\left (p_x(x)\right )}{dy} \times g&apos;(y) + p_x(x) \times \dfrac {d\left (g&apos;(y)\right )}{dy} \right \} \\ &amp;= \pm \left \{\dfrac {d\left (p_x(x)\right )}{dx} \times \dfrac {dx}{dy} \times
+g&apos;(y) + p_x(x) \times g&apos;&apos;(y)\right \} \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymathnumbered">
+
+<a id="autoid-20" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-38"
+      class="lateximagesource"
+><!--
+    dpy (y)                   2              
+∴             = ± p′x (x) g′ (y) + px (x)g′′ (y)    (1.5)
+      dy
+--><img
+      src="prml2latex-images/image-38.svg"
+      alt="(1.5) \{begin}{gather}   \therefore \dfrac {dp_y(y)}{dy} = \pm \left \{p&apos;_x(x) \left (g&apos;(y)\right )^2 + p_x(x) g&apos;&apos;(y)\right \} \{end}{gather} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+If <span
+      id="lateximage-prml2latex-39"
+      class="lateximagesource"
+><!--
+y
+b
+--><img
+   src="prml2latex-images/39033BE3255205E23F3436DF6750E44B.svg"
+   alt="\( \widehat {y} \)"
+   role="math"
+   style="height:1.53816em ; vertical-align:-0.63538em "
+   class="lateximage"
+></span> were simply the transformed maximum then <span
+   id="lateximage-prml2latex-40"
+   class="lateximagesource"
+><!--
+x = g(b
+b     y)
+--><img
+   src="prml2latex-images/0017FB5BFCA5FE2125C9996CC16C4018.svg"
+   alt="\( \widehat {x} = g(\widehat {y}) \)"
+   role="math"
+   style="width:4.74423em ; vertical-align:-0.65857em "
+   class="lateximage"
+></span> and <span
+   id="lateximage-prml2latex-41"
+   class="lateximagesource"
+><!--
+p′x (b
+     x) = 0
+--><img
+      src="prml2latex-images/BACC3075A697E8A2F1C7AFD82FDD3494.svg"
+      alt="\( p&apos;_x(\widehat {x}) = 0 \)"
+      role="math"
+      style="width:5.41165em ; vertical-align:-0.72632em "
+      class="lateximage"
+></span>
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-21" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-42"
+      class="lateximagesource"
+><!--
+             =⇒ p′y (b         x)g′′ (b
+                     y) = ±px (b      y) = 0
+                    x) ̸= 0 =⇒ g′′ (b
+              ∵ px (b               y) = 0
+                  =⇒ g(y) is linear
+     =⇒    if g(y) is non linear then g′′ (b
+                                           y) ̸= 0
+∴ p′y (b
+       y) = 0 ⇐⇒ g(y) is linear e.g. x = ay + b and
+p′y (b
+     y) ̸= 0 ⇐⇒ g(y) is non linear e.g. x = a log y + b
+--><img
+      src="prml2latex-images/image-42.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \implies p&apos;_y(\widehat {y}) = \pm p_x(\widehat {x}) g&apos;&apos;(\widehat {y}) = 0\\ \because p_x(\widehat {x}) \neq 0 \implies g&apos;&apos;(\widehat {y}) = 0 \\ \implies g(y) \text { is
+linear} \\ \implies \text { if } g(y) \text { is non linear then } g&apos;&apos;(\widehat {y}) \neq 0 \\ \therefore p&apos;_y(\widehat {y}) = 0 \iff g(y) \text { is linear e.g. } x = ay + b \text { and} \\ p&apos;_y(\widehat {y}) \neq 0
+\iff g(y) \text { is non linear e.g. } x = a\log y + b \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+As a result, in general <span
+      id="lateximage-prml2latex-43"
+      class="lateximagesource"
+><!--
+x ̸= g(b
+b      y)
+--><img
+   src="prml2latex-images/E3620F1C065D22EF783C4F0B312A77EC.svg"
+   alt="\( \widehat {x} \neq g(\widehat {y}) \)"
+   role="math"
+   style="width:4.74423em ; vertical-align:-0.65857em "
+   class="lateximage"
+></span>, so the location of the mode will transform differently from the variable itself. <span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-105"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐5</span></span></span>. </span> Using the definition (1.38)
+show that <span
+      id="lateximage-prml2latex-44"
+      class="lateximagesource"
+><!--
+   h     i
+var f(x)
+--><img
+   src="prml2latex-images/B84E6A65C4696D55D86BEFFD295371C5.svg"
+   alt="\( var\left [f (x)\right ] \)"
+   role="math"
+   style="width:5.48604em ; vertical-align:-0.81252em "
+   class="lateximage"
+></span> satisfies (1.39). <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-108"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span> Note that the expectation is a constant and the expectation of a constant is the constant itself, i.e <span
+      id="lateximage-prml2latex-45"
+      class="lateximagesource"
+><!--
+ h    i
+E f(x)
+--><img
+   src="prml2latex-images/0431B4EA555DF7F34B640AEF1397668A.svg"
+   alt="\( E\left [f(x)\right ] \)"
+   role="math"
+   style="width:4.59126em ; vertical-align:-0.81252em "
+   class="lateximage"
+></span> is a constant, say <span
+   id="lateximage-prml2latex-46"
+   class="lateximagesource"
+><!--
+β
+--><img
+   src="prml2latex-images/3FE109D630804A7D97A7B96F3F8131F7.svg"
+   alt="\( \beta   \)"
+   role="math"
+   style="width:0.80312em ; vertical-align:-0.24306em "
+   class="lateximage"
+></span>, then <span
+   id="lateximage-prml2latex-47"
+   class="lateximagesource"
+><!--
+E [β] = β
+--><img
+   src="prml2latex-images/BEBA6BCC02D18E6F1135E55DD6F00CCE.svg"
+   alt="\( \mathbb {E}\left [\beta \right ] = \beta   \)"
+   role="math"
+   style="width:4.98514em ; vertical-align:-0.3125em "
+   class="lateximage"
+></span> i.e. <span
+   id="lateximage-prml2latex-48"
+   class="lateximagesource"
+><!--
+ h h    ii  h     i
+E E f(x) = E f(x)
+--><img
+      src="prml2latex-images/993F6F07FB2F35F47B2185AA129A4D56.svg"
+      alt="\( \mathbb {E}\left [\mathbb {E}\left [f(x)\right ]\right ] = \mathbb {E}\left [f(x)\right ] \)"
+      role="math"
+      style="width:12.91782em ; vertical-align:-0.81252em "
+      class="lateximage"
+></span>, i.e. the expectation of an expectation is just the original expectation because the inner expectation collapses to a constant.
+</p>
+
+<p>
+Applying the linearity of expectations i.e. <span
+      id="lateximage-prml2latex-49"
+      class="lateximagesource"
+><!--
+ h       i         h i
+E aX + bY = aE X + bE Y
+--><img
+      src="prml2latex-images/CF510677505C60BD31CF80DF68B97134.svg"
+      alt="\( \mathbb {E}\left [ a X + b Y \right ] = a \mathbb {E}\left [X\right ] + b \mathbb {E} \left [Y\right ] \)"
+      role="math"
+      style="width:18.23022em ; vertical-align:-0.81252em "
+      class="lateximage"
+></span>
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-22" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-50"
+      class="lateximagesource"
+><!--
+   h    i            h    i2 
+var f(x) = E f(x) − E f(x)                               (1.38)
+                2           h     i   h   i2 
+          = E f(x) − 2f(x)E f(x) + E f(x)
+                2     h         h  ii     h  i2 
+          = E f(x)     − E 2f(x)E f(x) + E E f(x)
+                2       h     i2   h   i2
+          = E f(x)     − 2E f(x) + E f(x)
+                2     h     i2
+          = E f(x)     − E f(x)
+--><img
+      src="prml2latex-images/image-50.svg"
+      alt="(1.38–1.38) \{begin}{align*}   var \left [f(x)\right ] &amp;= \mathbb {E}\left [\left (f(x) - \mathbb {E}\left [f(x)\right ]\right )^2\right ] \tag {1.38} \label {1.38} \\ &amp;= \mathbb {E}\left [\left (f(x)\right )^2 - 2 f(x)
+\mathbb {E}\left [f(x)\right ] + \mathbb {E}\left [f(x)\right ]^2\right ] \\ &amp;= \mathbb {E}\left [\left (f(x)\right )^2\right ] - \mathbb {E}\left [2 f(x) \mathbb {E}\left [f(x)\right ]\right ] + \mathbb {E}\left [\mathbb {E}\left
+[f(x)\right ]^2\right ] \\ &amp;= \mathbb {E}\left [\left (f(x)\right )^2\right ] - 2 \mathbb {E}\left [f(x)\right ]^2 + \mathbb {E}\left [f(x)\right ]^2 \\ &amp;= \mathbb {E}\left [\left (f(x)\right )^2\right ] - \mathbb {E}\left
+[f(x)\right ]^2 \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-121"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐6</span></span></span>. </span> Show that if two variables
+<span
+      id="lateximage-prml2latex-51"
+      class="lateximagesource"
+><!--
+x
+--><img
+   src="prml2latex-images/F7AE1A92BBF3A6F92B497AD182CCAE54.svg"
+   alt="\( x \)"
+   role="math"
+   style="width:0.63008em ; vertical-align:-0.03326em "
+   class="lateximage"
+></span> and <span
+   id="lateximage-prml2latex-52"
+   class="lateximagesource"
+><!--
+y
+--><img
+   src="prml2latex-images/D90B03B2FCB9CE7D9F2F1D60E738CCAA.svg"
+   alt="\( y \)"
+   role="math"
+   style="width:0.79518em ; vertical-align:-0.63538em "
+   class="lateximage"
+></span> are independent, then their covariance is zero. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-126"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span> The covariance of two random variables x and y is given by
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-23" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-53"
+      class="lateximagesource"
+><!--
+cov[x, y] = Ex,y [xy] − E[x]E[y]   (1.41)
+--><img
+      src="prml2latex-images/image-53.svg"
+      alt="(1.41–1.41) \{begin}{gather*}   cov[x, y] = \mathbb {E}_{x, y}[xy] - \mathbb {E}[x] \mathbb {E}[y] \tag {1.41} \label {1.41} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="underline">Continuous variable: </span> Let x and y be continuous random variables with their probability densities as p(x) and p(y) respectively. Then <span
+      id="lateximage-prml2latex-54"
+      class="lateximagesource"
+><!--
+pxy (x, y) = px (x)py (y)
+--><img
+      src="prml2latex-images/9E21ACB3F11A41AD78C803B79927970C.svg"
+      alt="\( p_{xy}(x, y) = p_x(x) p_y(y) \)"
+      role="math"
+      style="width:12.1282em ; vertical-align:-0.72632em "
+      class="lateximage"
+></span>. Then
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-24" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-55"
+      class="lateximagesource"
+><!--
+               ZZ
+  Exy [xy] =        xypxy (xy) dx dy
+               ZZ
+          =         xypx (x)py (y) dx dy
+               Z               Z             
+          =         xpx (x) dx       ypy (y) dy
+
+∴ Exy [xy] = E[x]E[y]
+--><img
+      src="prml2latex-images/image-55.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \mathbb {E}_{xy}[xy] &amp;= \iint xy p_{xy}(xy) \diff x \diff y \\ &amp;= \iint xy p_x(x) p_y(y) \diff x \diff y \\ &amp;= \left (\int x p_x(x) \diff x\right ) \left (\int y p_y(y) \diff y\right ) \\
+\therefore \mathbb {E}_{xy}[xy] &amp;= \mathbb {E}[x] \mathbb {E}[y] \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="underline">Discrete variable:</span>
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-25" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-56"
+      class="lateximagesource"
+><!--
+               XX
+  Exy [xy] =               xypxy (xy)
+               x       y
+               XX
+          =                xypx (x)py (y)
+               x       y
+                              !         
+               X                X
+          =            xpx (x)   ypy (y)
+                   x                 y
+
+∴ Exy [xy] = E[x]E[y]
+--><img
+      src="prml2latex-images/image-56.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \mathbb {E}_{xy}[xy] &amp;= \sum _{x} \sum _{y} xy p_{xy}(xy) \\ &amp;= \sum _{x} \sum _{y} xy p_x(x) p_y(y) \\ &amp;= \left (\sum _{x} x p_x(x)\right ) \left (\sum _y y p_y(y)\right ) \\ \therefore
+\mathbb {E}_{xy}[xy] &amp;= \mathbb {E}[x] \mathbb {E}[y] \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-135"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐7</span></span></span>. </span> In this exercise, we prove
+the normalization condition (1.48) for the univariate Gaussian. To do this consider, the integral
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-26" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-57"
+      class="lateximagesource"
+><!--
+   Z ∞         
+            1 2
+I=    exp − 2 x dx   (1.124)
+   −∞      2σ
+--><img
+      src="prml2latex-images/image-57.svg"
+      alt="(1.124–1.124) \{begin}{gather*}   I = \int _{-\infty }^{\infty } exp\left ( - \dfrac {1}{2 \sigma ^2} x^2 \right ) \diff x \tag {1.124} \label {1.124} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+which we can evaluate by first writing its square in the form
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-27" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-58"
+      class="lateximagesource"
+><!--
+     Z ∞                
+ 2           1 2    1 2
+I =    exp − 2 x −      y dx dy   (1.125)
+    −∞      2σ     2σ 2
+--><img
+      src="prml2latex-images/image-58.svg"
+      alt="(1.125–1.125) \{begin}{gather*}   I^2 = \int _{-\infty }^{\infty } exp\left ( - \dfrac {1}{2 \sigma ^2} x^2 - \dfrac {1}{2 \sigma ^2} y^2\right ) \diff x \diff y \tag {1.125} \label {1.125} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Now make the transformation from Cartesian coordinates (x, y) to polar coordinates (r, <span
+      id="lateximage-prml2latex-59"
+      class="lateximagesource"
+><!--
+θ
+--><img
+   src="prml2latex-images/1378906652DE4A1492CCB2A8C51C318C.svg"
+   alt="\( \theta   \)"
+   role="math"
+   style="width:0.65164em"
+   class="lateximage"
+></span>) and then substitute <span
+   id="lateximage-prml2latex-60"
+   class="lateximagesource"
+><!--
+u = r2
+--><img
+   src="prml2latex-images/3A786DA9C7A45F3B5ADABE69B0A6845F.svg"
+   alt="\( u = r^2 \)"
+   role="math"
+   style="width:3.76585em ; vertical-align:-0.0415em "
+   class="lateximage"
+></span>. Show that, by performing the integrals over <span
+   id="lateximage-prml2latex-61"
+   class="lateximagesource"
+><!--
+θ
+--><img
+      src="prml2latex-images/1378906652DE4A1492CCB2A8C51C318C.svg"
+      alt="\( \theta   \)"
+      role="math"
+      style="width:0.65164em"
+      class="lateximage"
+></span> and u, and then taking the square root of both sides, we obtain
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-28" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-62"
+      class="lateximagesource"
+><!--
+         1/2
+I = 2πσ 2        (1.126)
+--><img
+      src="prml2latex-images/image-62.svg"
+      alt="(1.126–1.126) \{begin}{gather*}   I = \left (2\pi \sigma ^2\right )^{1/2} \tag {1.126} \label {1.126} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Finally, use this result to show that the Gaussian distribution <span
+      id="lateximage-prml2latex-63"
+      class="lateximagesource"
+><!--
+N (x|µ, σ 2 )
+--><img
+   src="prml2latex-images/C5E3C89B7B1CB2D893787A78AD0E1083.svg"
+   alt="\( \mathcal {N}(x | \mu , \sigma ^2) \)"
+   role="math"
+   style="width:5.91628em ; vertical-align:-0.3125em "
+   class="lateximage"
+></span> is normalized. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-150"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span> Cartesian to polar coordinates transformation is :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-29" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-64"
+      class="lateximagesource"
+><!--
+(x, y) ≡ (rcosθ, rsinθ)
+--><img
+      src="prml2latex-images/image-64.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   (x, y) \equiv (r cos \theta , r sin \theta ) \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymath">
+
+<a id="autoid-30" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-65"
+      class="lateximagesource"
+><!--
+    ∂x           ∂x             ∂y             ∂y
+∴      = cosθ,      = −rsinθ,        = sinθ,        = rcosθ
+    ∂r           ∂θ             ∂r             ∂θ
+--><img
+      src="prml2latex-images/image-65.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \therefore \dfrac {\partial x}{\partial r} = cos \theta , \quad \dfrac {\partial x} {\partial \theta } = -r sin \theta , \quad \dfrac {\partial y} {\partial r} = sin \theta , \quad \dfrac {\partial y}
+{\partial \theta } = r cos \theta \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Therefore the <span class="underline">Jacobian</span> of the transformation is given by
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-31" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-66"
+      class="lateximagesource"
+><!--
+          ∂x   ∂x
+∂(x, y)   ∂r   ∂θ   cosθ   −rsinθ                                               
+        =         =                 = r cos2 θ + sin2 θ = r   ∵ cos2 θ + sin2 θ = 1
+∂(r, θ)   ∂y   ∂y   sinθ   rcosθ
+          ∂r   ∂θ
+--><img
+      src="prml2latex-images/image-66.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \dfrac {\partial (x, y)}{\partial (r, \theta )} = \begin{vmatrix} \dfrac {\partial x}{\partial r} &amp; \dfrac {\partial x} {\partial \theta }\\[10pt] \dfrac {\partial y}{\partial r} &amp; \dfrac
+{\partial y} {\partial \theta } \end {vmatrix} = \begin{vmatrix} cos \theta &amp; -r sin \theta \\ sin \theta &amp; r cos \theta \end {vmatrix} = r\left (cos^2 \theta + sin^2 \theta \right ) = r \quad \because \left (cos^2 \theta + sin^2
+\theta = 1\right ) \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+The region of integration :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-32" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-67"
+      class="lateximagesource"
+><!--
+x ∈ (−∞, ∞), y ∈ (−∞, ∞) =⇒ r ∈ [0, ∞), θ ∈ [0, 2π)
+--><img
+      src="prml2latex-images/image-67.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   x \in (-\infty , \infty ), y \in (-\infty , \infty ) \implies r \in [0, \infty ), \theta \in [0,2\pi ) \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Let us recall that the Jacobian is a determinant that tells us how a change of variables stretches or compresses area (or volume) locally. <sup>1</sup><a id="prml2latex-autopage-158"></a>
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-33" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-69"
+      class="lateximagesource"
+><!--
+    ZZ                     ZZ                     ∂(x, y)
+∴        f(x, y) dx dy =        f x(r, θ), y(r, θ)          dr dθ
+                                                    ∂(r, θ)
+                           ZZ
+                      =         f(rcosθ, rsinθ)r dr dθ
+--><img
+      src="prml2latex-images/image-69.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \therefore \iint f(x, y) \diff x \diff y &amp;= \iint f\left (x(r, \theta ), y(r, \theta )\right ) \left |\dfrac {\partial (x, y)}{\partial (r, \theta )}\right | \diff r \diff \theta \\ &amp;= \iint
+f(r cos \theta , r sin \theta ) r \diff r \diff \theta \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Hence, the double integral of&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-58">1.125</a>)</span> becomes
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-34" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-70"
+      class="lateximagesource"
+><!--
+       Z 2π Z ∞                               
+                       1           1 2 2
+I2 =          exp − 2 r2 cos2 θ −      r sin θ   r dr dθ
+     0    0          2σ           2σ 2
+    Z 2π Z ∞             
+                      r2
+  =           exp − 2 r dr dθ
+     0    0          2σ
+       Z ∞              
+                    r2
+  = 2π      exp − 2 r dr
+        0          2σ
+--><img
+      src="prml2latex-images/image-70.svg"
+      alt="(1.6–1.5) \{begin}{align*}   I^2 &amp;= \int _0^{2\pi } \int _0^{\infty } exp\left ( - \dfrac {1}{2 \sigma ^2} r^2 cos^2 \theta - \dfrac {1}{2 \sigma ^2} r^2 sin^2 \theta \right ) r \diff r \diff \theta \\ &amp;= \int _0^{2\pi }
+\int _0^{\infty } exp\left ( - \dfrac {r^2}{2 \sigma ^2}\right ) r \diff r \diff \theta \\ &amp;= 2\pi \int _0^{\infty } exp\left ( - \dfrac {r^2}{2 \sigma ^2}\right ) r \diff r \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+With the substitution <span
+      id="lateximage-prml2latex-71"
+      class="lateximagesource"
+><!--
+r2 = u =⇒ 2r dr = du
+--><img
+      src="prml2latex-images/49F736C693CC877E8EC200C06A15E83E.svg"
+      alt="\( r^2 = u \implies 2r \diff r = \diff u \)"
+      role="math"
+      style="width:13.31395em ; vertical-align:-0.0415em "
+      class="lateximage"
+></span>, this becomes
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-35" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-72"
+      class="lateximagesource"
+><!--
+         Z ∞     
+  2                  u  1
+ I = 2π      exp − 2         du
+                   2σ     2
+        h 0     u         i ∞
+    = π exp − 2        −2σ 2
+               2σ               0
+          2
+    = 2πσ
+           1/2
+∴ I = 2πσ 2                         (1.126)
+--><img
+      src="prml2latex-images/image-72.svg"
+      alt="(1.126–1.126) \{begin}{align*}    I^2 &amp;= 2\pi \int _0^{\infty } exp\left (-\dfrac {u}{2\sigma ^2}\right ) \dfrac {1}{2} \diff u \\ &amp;= \pi \left [exp\left (-\dfrac {u}{2{\sigma }^2}\right ) \left ( -2 \sigma ^2\right )\right
+]_0^{\infty } \\ &amp;= 2\pi \sigma ^2 \\ \therefore I &amp;= \left (2\pi \sigma ^2\right )^{1/2} \tag {1.126} \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Now let us prove that the Gaussian distribution is normalized, i.e.
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-36" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-73"
+      class="lateximagesource"
+><!--
+Z ∞            
+      N x|µ, σ 2 dx = 1   (1.48)
+−∞
+--><img
+      src="prml2latex-images/image-73.svg"
+      alt="(1.48–1.48) \{begin}{gather*}   \int _{-\infty }^{\infty } \mathcal {N} \left (x | \mu , \sigma ^2 \right ) \diff x = 1 \tag {1.48} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+
+
+<div class="displaymath">
+
+<a id="autoid-37" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-74"
+      class="lateximagesource"
+><!--
+Z ∞                                          Z ∞                
+                 2                 1                    1        2
+      N x|µ, σ           dx =           1/2      exp − 2 (x − µ) dx
+−∞                              2πσ 2          −∞      2σ
+--><img
+      src="prml2latex-images/image-74.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \int _{-\infty }^{\infty } \mathcal {N} \left (x | \mu , \sigma ^2 \right ) \diff x &amp;= \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma
+^2} \left (x - \mu \right )^2 \right \} \diff x \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Let us apply the transformation <span
+      id="lateximage-prml2latex-75"
+      class="lateximagesource"
+><!--
+y=x−µ
+--><img
+      src="prml2latex-images/BA7B1E35F779012D316666C4DEC9299E.svg"
+      alt="\( y = x - \mu   \)"
+      role="math"
+      style="width:5.34279em ; vertical-align:-0.63538em "
+      class="lateximage"
+></span> :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-38" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-76"
+      class="lateximagesource"
+><!--
+Z ∞                                          Z ∞           
+                 2                 1                1       2
+      N x|µ, σ           dx =       1/2     exp − 2 (x − µ) dx
+−∞                            2πσ 2       −∞      2σ
+                                         Z ∞    (     )
+                                 1                 y2
+                            =       1/2     exp − 2 dy
+                              2πσ 2       −∞      2σ
+                                  I
+                           =            1/2
+                                2πσ 2
+                           =1
+--><img
+      src="prml2latex-images/image-76.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \int _{-\infty }^{\infty } \mathcal {N} \left (x | \mu , \sigma ^2 \right ) \diff x &amp;= \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma
+^2} \left (x - \mu \right )^2 \right \} \diff x \\ &amp;= \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {y^2}{2 \sigma ^2} \right \} \diff y \\ &amp;= \dfrac {I}{\left (2\pi \sigma
+^2\right )^{1/2}} \\ &amp;= 1 \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+<div role="note" class="footnotes">
+
+<a id="prml2latex-autopage-175"></a>
+
+<p>
+<sup>1</sup>&nbsp;Note that the Jacobian plays the role of <span
+      id="lateximage-prml2latex-68"
+      class="lateximagesource"
+><!--
+dx
+dy
+--><img
+   src="prml2latex-images/B312E95DB3FC08F4536B70E990F3C814.svg"
+   alt="\( \dfrac {dx}{dy} \)"
+   role="math"
+   style="height:3.82825em ; vertical-align:-1.74023em "
+   class="lateximage"
+></span> in the univariate case.
+</p>
+
+
+</div>
+
+</div>
+<div class="amsthmbodyproblemstyle">
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"><a id="prml2latex-autopage-178"></a>
+<span class="amsthmnameproblemstyle">&#x2711; <span class="underline">Problem</span></span><span class="amsthmnumberproblemstyle"> <span class="textup"><span class="underline">1‐8</span></span></span>. </span> By using a change of
+variables, verify that the univariate Gaussian given by (1.46) satisfies (1.49). Next, by differentiating both sides of the normalization condition
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-39" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-77"
+      class="lateximagesource"
+><!--
+Z ∞
+      N (x|µ, σ 2 ) dx = 1   (1.127)
+−∞
+--><img
+      src="prml2latex-images/image-77.svg"
+      alt="(1.127–1.127) \{begin}{gather*}   \int _{-\infty }^{\infty } \mathcal {N} (x | \mu , \sigma ^2) \diff x = 1 \tag {1.127}\label {1.127} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+with respect to <span
+      id="lateximage-prml2latex-78"
+      class="lateximagesource"
+><!--
+σ2
+--><img
+   src="prml2latex-images/5507273639AA20D291EEFA9381F3DC68.svg"
+   alt="\( \sigma ^2 \)"
+   role="math"
+   style="width:1.47829em"
+   class="lateximage"
+></span>, verify that the Gaussian satisfies (1.50). Finally, show that (1.51) holds. <span class="theoremendmark">♢</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="amsthmproof">
+<a id="prml2latex-autopage-183"></a>
+
+<ul class="list" style="list-style-type:none">
+
+
+<li>
+<p>
+<span class="listmarker"> <span class="amsthmproofname"><em><b> &#x2712; <span class="underline">Solution</span></b></em>.</span></span>
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-40" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-79"
+      class="lateximagesource"
+><!--
+         Z ∞
+E[x] =   N (x|µ, σ 2 )x dx
+         −∞                                  
+                 Z ∞
+         1                      1           2
+    =       1/2       exp   −      (x − µ)     x dx
+      2πσ 2       −∞           2σ 2
+--><img
+      src="prml2latex-images/image-79.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \mathbb {E}[x] &amp;= \int _{-\infty }^{\infty } \mathcal {N} (x | \mu , \sigma ^2) x \diff x \\ &amp;= \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac
+{1}{2 \sigma ^2} \left (x - \mu \right )^2 \right \} x \diff x \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+By the transformation of <span
+      id="lateximage-prml2latex-80"
+      class="lateximagesource"
+><!--
+y=x−µ
+--><img
+      src="prml2latex-images/BA7B1E35F779012D316666C4DEC9299E.svg"
+      alt="\( y = x - \mu   \)"
+      role="math"
+      style="width:5.34279em ; vertical-align:-0.63538em "
+      class="lateximage"
+></span>, this becomes
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-41" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-81"
+      class="lateximagesource"
+><!--
+                 Z ∞                
+           1                   1 2
+E[x] =       1/2     exp − 2 y (y + µ) dy
+       2πσ 2       −∞         2σ
+                  Z ∞                                    Z ∞               
+          1                    1 2                 1                    1 2
+     =       1/2     exp   −      y   y dy + µ       1/2     exp   −      y   dy
+       2πσ 2       −∞         2σ 2              2πσ 2       −∞         2σ 2
+--><img
+      src="prml2latex-images/image-81.svg"
+      alt="(1.6–1.5) \{begin}{align*}   \mathbb {E}[x] &amp;= \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} y^2 \right \} (y + \mu ) \diff y \\ &amp;= \dfrac {1}{\left (2\pi
+\sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} y^2 \right \} y \diff y + \mu \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} y^2
+\right \} \diff y \{end}{align*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Using the result of&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-57">1.124</a>)</span>, the second integral becomes
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-42" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-82"
+      class="lateximagesource"
+><!--
+                   Z ∞                                  1/2
+       1                    1 2           1              2
+µ           1/2      exp − 2 y dy = µ              2πσ        =µ
+    2πσ 2          −∞      2σ          2πσ 2
+                                               1/2
+--><img
+      src="prml2latex-images/image-82.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \mu \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} y^2 \right \} \diff y = \mu \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \left
+(2\pi \sigma ^2\right )^{1/2} = \mu \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Let us look at the first integral
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-43" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-83"
+      class="lateximagesource"
+><!--
+               Z ∞         
+   1                    1 2
+        1/2      exp − 2 y y dy
+2πσ 2          −∞      2σ
+--><img
+      src="prml2latex-images/image-83.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \dfrac {1}{\left (2\pi \sigma ^2\right )^{1/2}} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} y^2 \right \} y \diff y \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+By the transformation of <span
+      id="lateximage-prml2latex-84"
+      class="lateximagesource"
+><!--
+z = y2
+--><img
+      src="prml2latex-images/FA2DAAD0E4ED4B12F26FA227E4891A10.svg"
+      alt="\( z = y^2 \)"
+      role="math"
+      style="width:3.786em ; vertical-align:-0.63538em "
+      class="lateximage"
+></span>, this becomes
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-44" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-85"
+      class="lateximagesource"
+><!--
+                 Z ∞       
+    1                    1
+          1/2     exp − 2 z dz = 0
+2 2πσ 2          ∞      2σ
+--><img
+      src="prml2latex-images/image-85.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \dfrac {1}{2\left (2\pi \sigma ^2\right )^{1/2}} \int _{\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} z \right \} \diff z = 0 \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+because endpoints of this integral are the same, i.e. <span
+      id="lateximage-prml2latex-86"
+      class="lateximagesource"
+><!--
+∞
+--><img
+      src="prml2latex-images/92157E4D76BFC85AD433363E7A65C9A9.svg"
+      alt="\( \infty   \)"
+      role="math"
+      style="width:1.2801em"
+      class="lateximage"
+></span>.
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-45" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-87"
+      class="lateximagesource"
+><!--
+∴ E[x] = 0 + µ = µ
+--><img
+      src="prml2latex-images/image-87.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \therefore \mathbb {E}[x] = 0 + \mu = \mu \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Let us rewrite&nbsp;Eq.&nbsp;<span class="textup">(<a href="Introduction.html#lateximage-prml2latex-77">1.127</a>)</span> :
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-46" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-88"
+      class="lateximagesource"
+><!--
+          Z ∞
+             N (x|µ, σ 2 ) dx = 1
+  Z ∞     −∞                     1/2
+            1           2
+∴     exp − 2 (x − µ) dx = 2πσ 2
+   −∞      2σ
+--><img
+      src="prml2latex-images/image-88.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \int _{-\infty }^{\infty } \mathcal {N} (x | \mu , \sigma ^2) \diff x = 1 \\ \therefore \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} \left (x - \mu \right )^2 \right \} \diff x =
+\left (2\pi \sigma ^2\right )^{1/2} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+By the transformation of <span
+      id="lateximage-prml2latex-89"
+      class="lateximagesource"
+><!--
+u = σ2
+--><img
+      src="prml2latex-images/4343887FD1507286B5D4B348B511E48B.svg"
+      alt="\( u = \sigma ^2 \)"
+      role="math"
+      style="width:3.97992em ; vertical-align:-0.0415em "
+      class="lateximage"
+></span>, we get
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-47" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-90"
+      class="lateximagesource"
+><!--
+Z ∞                 
+          1        2           1/2
+   exp −    (x − µ) dx = (2πu)
+−∞       2u
+--><img
+      src="prml2latex-images/image-90.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 u} \left (x - \mu \right )^2 \right \} \diff x = \left (2\pi u\right )^{1/2} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Differentiate both sides w.r.t <span
+      id="lateximage-prml2latex-91"
+      class="lateximagesource"
+><!--
+σ2
+--><img
+      src="prml2latex-images/5507273639AA20D291EEFA9381F3DC68.svg"
+      alt="\( \sigma ^2 \)"
+      role="math"
+      style="width:1.47829em"
+      class="lateximage"
+></span> is equivalent to differentiating w.r.t to u, we obtain
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-48" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-92"
+      class="lateximagesource"
+><!--
+  Z ∞                        
+                  1         2          2  1             1/2   1
+∴       exp −        (x − µ) (x − µ)           dx = (2π)
+    −∞          2u                       2u 2               2u1/2
+             1/2 Z ∞                       
+           1                     1          2         2
+    ∴                    exp −     (x − µ) (x − µ) dx = u
+        2πu         −∞          2u
+            1/2 Z ∞                        
+         1                       1          2         2
+  ∴                     exp − 2 (x − µ) (x − µ) dx = σ 2
+      2πσ 2         −∞          2σ
+                            h        i
+                                   2
+                        ∴ E (x − µ) = σ 2
+                       h i
+                   ∴ E x2 − 2µE[x] + µ2 = σ 2
+                 h i
+             ∴ E x2 − 2µµ + µ2 = σ 2 ∵ E[x] = µ
+                            h i
+                        ∴ E x2 = µ2 + σ 2                           (1.50)
+--><img
+      src="prml2latex-images/image-92.svg"
+      alt="(1.50–1.50) \{begin}{gather*}   \therefore \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 u} \left (x - \mu \right )^2 \right \} \left (x - \mu \right )^2 \dfrac {1}{2u^2}\diff x = \left (2\pi \right )^{1/2} \dfrac {1}{2
+u^{1/2}} \\ \therefore \left (\dfrac {1}{2\pi u}\right )^{1/2} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 u} \left (x - \mu \right )^2 \right \} \left (x - \mu \right )^2\diff x = u \\ \therefore \left (\dfrac {1}{2\pi \sigma
+^2}\right )^{1/2} \int _{-\infty }^{\infty } exp \left \{- \dfrac {1}{2 \sigma ^2} \left (x - \mu \right )^2 \right \} \left (x - \mu \right )^2\diff x = \sigma ^2 \\ \therefore \mathbb {E}\left [\left (x - \mu \right )^2\right ] = \sigma
+^2 \\ \therefore \mathbb {E}\left [x^2\right ] - 2 \mu \mathbb {E}[x] + \mu ^2 = \sigma ^2 \\ \therefore \mathbb {E}\left [x^2\right ] - 2 \mu \mu + \mu ^2 = \sigma ^2 \quad \because \mathbb {E}[x] = \mu \\ \therefore \mathbb {E}\left
+[x^2\right ] = \mu ^2 + \sigma ^2 \tag {1.50} \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+Equation 1.39 states that
+</p>
+
+
+<div class="displaymath">
+
+<a id="autoid-49" ></a >
+
+<p>
+<span
+      id="lateximage-prml2latex-93"
+      class="lateximagesource"
+><!--
+          h i
+var[x] = E x2 − E[x]2 = µ2 + σ 2 − µ2 = σ 2
+--><img
+      src="prml2latex-images/image-93.svg"
+      alt="(1.6–1.5) \{begin}{gather*}   var[x] = \mathbb {E}\left [x^2\right ] - \mathbb {E}[x]^2 = \mu ^2 + \sigma ^2 - \mu ^2 = \sigma ^2 \{end}{gather*} "
+      style=""
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<span class="theoremendmark">&#x220E;</span>
+</p>
+
+</li>
+
+</ul>
+
+</div>
+<div class="center">
+<div class="center">
+
+<p>
+<span
+      id="lateximage-prml2latex-94"
+      class="lateximagesource"
+><!--
+▲▲▲
+--><img
+      src="prml2latex-images/9D53E057ED74D2A1ABC9DDA5276653D3.svg"
+      alt="\( \blacktriangle \blacktriangle \blacktriangle   \)"
+      role="math"
+      style="width:2.73845em"
+      class="lateximage"
+></span>
+</p>
+</div>
+
+<p>
+<b>ॐ</b>
+</p>
+</div>
+<div class="center">
+
+<p>
+<span
+      id="lateximage-prml2latex-95"
+      class="lateximagesource"
+><!--
+▼▼▼
+--><img
+   src="prml2latex-images/8413A9883B8DA4D64B7FC19D2300BDB4.svg"
+   alt="\( \blacktriangledown \blacktriangledown \blacktriangledown   \)"
+   role="math"
+   style="width:2.73845em"
+   class="lateximage"
+></span>
+</p>
+</div>
+<p>
+<span style="width:2.84526pt; display:inline-block"><!----></span>
+</p>
+<div class="center">
+<p>
+<span
+    style="
+    display: inline-block;
+     -ms-transform:rotate(-45deg);
+     -webkit-transform:rotate(-45deg);
+     transform:rotate(-45deg); "
+>
+<span
+    class="textcolor"
+    style="color:#808080"
+>This page is intentionally left blank.</span></span>
+</p>
+</div>
+<p>
+<span style="width:2.84526pt; display:inline-block"><!----></span>
+</p>
+<div class="center">
+<p>
+<span
+    style="
+    display: inline-block;
+     -ms-transform:rotate(-45deg);
+     -webkit-transform:rotate(-45deg);
+     transform:rotate(-45deg); "
+>
+<span
+    class="textcolor"
+    style="color:#808080"
+>This page is intentionally left blank.</span></span>
+</p>
+</div>
+<a id="prml2latex-autofile-last"></a>
+</section>
+</main>
+</div>
+
+
+<nav class="botnavigation"><a href="index.html" class="linkhome" >
+Home</a></nav>
+</body>
+</html>
